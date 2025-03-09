@@ -20,7 +20,7 @@ export default function App() {
   }, [xy]);
 
   return (
-    <div className="bg-[#262626] min-h-screen">
+    <div className="bg-[#F5F5F5] dark:bg-[#262626] min-h-screen">
       {/* mobile mode */}
       <MobileOverlay openHandler={openHandler} open={open} />
       {/* side bar */}

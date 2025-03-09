@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, Typography } from "@material-tailwind/react";
 import { NavLink } from "react-router";
+import { useTheme } from "../context/ThemeContext";
 
 const data = [
   {
@@ -86,85 +87,121 @@ const data = [
 ];
 
 function SideBar({ open }) {
+  const { isDark, toggle } = useTheme();
   return (
     <div
       className={`${open ? "translate-x-0" : "-translate-x-full"} 
-        w-[70%] bg-[#262626] md:w-[250px] h-screen fixed left-0 top-0 z-20 pr-4
-        transition-transform duration-300 ease-in-out font-nunito text-white`}
+        w-[70%] bg-[#F5F5F5] dark:bg-[#262626] md:w-[250px] h-screen fixed left-0 top-0 z-20 pr-4
+        transition-transform duration-300 ease-in-out font-nunito dark:text-white`}
     >
-      <div className="py-[20px] pl-6">
-        <div className="flex items-center gap-4 mb-[40px]">
-          <Avatar
-            src="https://media.licdn.com/dms/image/v2/D4D03AQHxGNKUQh_KFA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714676873188?e=1746662400&v=beta&t=PyqeExjxdhDnkJWs7dviHSQeGQJeronwBALKJET443Q"
-            alt="avatar"
-            variant="rounded"
-            withBorder={true}
-            color="green"
-            className="p-0.5"
-          />
-          <div>
-            <Typography variant="h6">Krishna Mulay</Typography>
-            <Typography variant="small" color="gray" className="font-normal">
-              Frontend Developer
-            </Typography>
+      <div className="py-[20px] pl-6 flex flex-col justify-between h-[100%]">
+        <div className="">
+          <div className="flex items-center gap-4 mb-[40px]">
+            <Avatar
+              src="https://media.licdn.com/dms/image/v2/D4D03AQHxGNKUQh_KFA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714676873188?e=1746662400&v=beta&t=PyqeExjxdhDnkJWs7dviHSQeGQJeronwBALKJET443Q"
+              alt="avatar"
+              variant="rounded"
+              withBorder={true}
+              color="green"
+              className="p-0.5"
+            />
+            <div>
+              <Typography variant="h6">Krishna Mulay</Typography>
+              <Typography variant="small" color="gray" className="font-normal">
+                Frontend Developer
+              </Typography>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 text-[12px]">
+            {data.map((ele, index) => (
+              <NavLink
+                key={index}
+                to={ele.path}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 pl-4 py-2  rounded-xl ${
+                    isActive ? "bg-white  dark:bg-black" : ""
+                  }`
+                }
+                // className={`flex items-center gap-3 px-4 py-2 bg-black rounded-xl`}
+              >
+                {ele.svg}
+                <span>{ele.text}</span>
+              </NavLink>
+            ))}
+          </div>
+          <p className="text-[10px] mt-[35px] mb-[25px] ml-[12px]">SOCIAL</p>
+          <div className="flex flex-col  text-[12px]">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/krishna-mulay-keizh/"
+              className={`flex items-center gap-3 px-3 py-2 rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+              </svg>
+
+              <span>Linkedin</span>
+            </a>
+            <a
+              target="_blank"
+              href="https://github.com/keizh"
+              className={`flex items-center gap-3 px-3 py-2 rounded-xl`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-github"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+              </svg>
+
+              <span>Github</span>
+            </a>
           </div>
         </div>
-        <div className="flex flex-col gap-2 text-[12px]">
-          {data.map((ele, index) => (
-            <NavLink
-              key={index}
-              to={ele.path}
-              className={({ isActive }) =>
-                `flex items-center gap-3 pl-4 py-2  rounded-xl ${
-                  isActive ? "bg-black" : ""
-                }`
-              }
-              // className={`flex items-center gap-3 px-4 py-2 bg-black rounded-xl`}
-            >
-              {ele.svg}
-              <span>{ele.text}</span>
-            </NavLink>
-          ))}
-        </div>
-        <p className="text-[10px] mt-[35px] mb-[25px] ml-[12px]">SOCIAL</p>
-        <div className="flex flex-col  text-[12px]">
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/in/krishna-mulay-keizh/"
-            className={`flex items-center gap-3 px-3 py-2 rounded-xl`}
-          >
+        <button className="w-fit" onClick={toggle}>
+          {isDark ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-linkedin"
-              viewBox="0 0 16 16"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
             >
-              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+              />
             </svg>
-
-            <span>Linkedin</span>
-          </a>
-          <a
-            target="_blank"
-            href="https://github.com/keizh"
-            className={`flex items-center gap-3 px-3 py-2 rounded-xl`}
-          >
+          ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-github"
-              viewBox="0 0 16 16"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
             >
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+              />
             </svg>
-
-            <span>Github</span>
-          </a>
-        </div>
+          )}
+        </button>
       </div>
     </div>
   );

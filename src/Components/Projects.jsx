@@ -7,7 +7,9 @@ function Projects() {
   return (
     <div className="max-w-[700px] mx-auto">
       <div className="pt-[30px] font-nunito ">
-        <p className="text-3xl sm:text-4xl md:text-4xl font-bold">Projects</p>
+        <p className="text-3xl sm:text-4xl md:text-4xl font-bold dark:text-white text-black">
+          Projects
+        </p>
         <p className="mt-[25px] mb-[60px] text-[#A3A3A3]">
           {/* #eceff1 */}
           Explore cutting-edge design innovations that transform ideas into
@@ -17,10 +19,13 @@ function Projects() {
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 mb-[60px]">
           {data.map((ele, index) => (
             <NavLink ele={index} className={"block"} to={`/project/${ele.id}`}>
-              <div className="w-full sm:aspect-square overflow-hidden rounded-xl">
-                <img className="w-full h-full object-cover" src={ele.url} />
+              <div className="w-full sm:aspect-square">
+                <img
+                  className="w-full h-full object-cover border-[1px] border-[#37474f] rounded-xl"
+                  src={ele.url}
+                />
               </div>
-              <p className="font-nunito font-bold mt-[10px] text-center">
+              <p className="font-nunito font-bold mt-[10px] text-center dark:text-white text-black">
                 {ele.name}
               </p>
             </NavLink>

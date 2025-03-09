@@ -22,7 +22,7 @@ function AboutMe() {
       <div className="pt-[30px]">
         <div className="flex justify-between flex-wrap">
           <article className="font-nunito sm:w-[55%] ">
-            <p className=" text-3xl sm:text-4xl md:text-4xl font-bold">
+            <p className=" text-3xl sm:text-4xl md:text-4xl font-bold text-black dark:text-white">
               Hello! I’m Krishna
             </p>
             <p className="text-3xl  sm:text-4xl font-bold text-[#fbc02d]">
@@ -58,7 +58,9 @@ function AboutMe() {
                 to="/projects"
                 className="underline underline-offset-4 flex items-center gap-2 text-[#fbc02d]"
               >
-                <span>View My Projects </span>
+                <span className="font-bold dark:font-medium">
+                  View My Projects{" "}
+                </span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +91,7 @@ function AboutMe() {
           {Skills.map((ele, index) => (
             <div
               key={index}
-              className=" bg-[#232017] border-[1px] border-[#4C452D] py-4 rounded-md flex justify-center items-center"
+              className="bg-[#F5F5F5] dark:bg-[#232017] border-[1px] dark:border-[#4C452D] py-4 rounded-md flex justify-center items-center"
             >
               <span className="font-nunito  text-[#A3A3A3] ">{ele}</span>
             </div>

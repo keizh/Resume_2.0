@@ -9,14 +9,14 @@ function HomePage() {
     <div className="max-w-[700px] mx-auto">
       <div className="pt-[30px]">
         {/* intro */}
-        <p className="font-nunito text-3xl sm:text-4xl md:text-4xl font-bold">
+        <p className="font-nunito text-3xl sm:text-4xl md:text-4xl font-bold text-black dark:text-white">
           Hello! I’m Krishna
         </p>
-        <div className="flex flex-row flex-wrap  gap-2 sm:gap-4 font-nunito text-[#e0e0e0]">
+        <div className="flex flex-row flex-wrap  gap-2 sm:gap-4 font-nunito  dark:text-[#e0e0e0]">
           <p className="text-3xl  sm:text-4xl font-bold text-[#fbc02d]">
             Fullstack Developer
           </p>
-          <p className="w-fit border-[1px] border-[#546e7a]   px-2 py-1  flex items-center gap-2 text-2xl border-2 rounded-md">
+          <p className="text-black dark:text-white w-fit border-[1px] border-[#E5E5E5] dark:border-[#546e7a]   px-2 py-1  flex items-center gap-2 text-2xl border-2 rounded-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -74,12 +74,14 @@ function HomePage() {
           {/* <Button>About Me</Button> */}
         </div>
         <div className="my-[50px] flex justify-between">
-          <p className="font-nunito font-medium text-2xl">Selected Work</p>
+          <p className="font-nunito font-medium text-2xl text-black dark:text-white">
+            Selected Work
+          </p>
           <NavLink
             to="/projects"
             className="underline underline-offset-4 flex items-center gap-2 text-[#fbc02d]"
           >
-            <span>View All </span>
+            <span className="font-bold dark:font-medium">View All </span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +104,7 @@ function HomePage() {
             className="rounded-xl"
             src="https://res.cloudinary.com/dddkhewor/image/upload/fl_preserve_transparency/v1740583782/Screenshot_2025-02-26_205832_l5ex75.jpg?_s=public-apps"
           />
-          <p className="font-nunito font-bold mt-[10px] text-center">
+          <p className="font-nunito font-bold mt-[10px] text-center text-black dark:text-white">
             WYM (Watch Your Movie)
           </p>
         </NavLink>
@@ -111,7 +113,7 @@ function HomePage() {
             className="rounded-xl "
             src="https://res.cloudinary.com/dddkhewor/image/upload/v1740595590/Screenshot_2025-02-26_205832_wouggb.png"
           />
-          <p className="font-nunito font-bold mt-[10px] text-center">
+          <p className="font-nunito font-bold mt-[10px] text-center text-black dark:text-white">
             Lets Chat
           </p>
         </NavLink>

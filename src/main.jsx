@@ -8,6 +8,7 @@ import Projects from "./Components/Projects.jsx";
 import AboutMe from "./Components/AboutMe.jsx";
 import Contacts from "./Components/Contacts.jsx";
 import ProjectComp from "./Components/ProjectComp.jsx";
+import ThemeProvider from "./context/ThemeContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <ThemeProvider>
     <RouterProvider router={router} />
-  </StrictMode>
+  </ThemeProvider>
 );

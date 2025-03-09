@@ -19,7 +19,7 @@ export default function ClipboardWithTooltip({ txt }) {
           className={`flex items-center gap-x-3 px-4 py-2.5 lowercase `}
         >
           <Typography
-            className="border-r border-gray-400/50 pr-3 font-normal"
+            className="border-r border-gray-400/50 pr-3 font-normal "
             variant="small"
           >
             {txt}

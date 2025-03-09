@@ -4,12 +4,14 @@ import { Avatar, Typography } from "@material-tailwind/react";
 function ContactMeComp() {
   return (
     <article className="p-5 rounded-lg border-[1px] border-[#37474f]">
-      <p className="text-2xl sm:text-xl ">Want to connect ?</p>
+      <p className="text-2xl sm:text-xl dark:text-white text-black">
+        Want to connect ?
+      </p>
       <p className="text-sm my-[10px] text-[#A3A3A3]">
         I'm eager to hear from employers and work on projects.
       </p>
       <div className="flex items-center gap-4 mt-[25px]">
-        <div className="rounded-full bg-[#232017] border-[1px] border-[#4C452D] p-4">
+        <div className="rounded-full bg-[#F3F0E7] dark:bg-[#232017] border-[1px] border-[#DDD6BF] dark:border-[#4C452D] p-4 dark:text-white text-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -26,16 +28,19 @@ function ContactMeComp() {
           </svg>
         </div>
         <div>
-          <Typography variant="h6" className="font-nunito">
+          <Typography
+            variant="h6"
+            className="font-nunito dark:text-white text-black"
+          >
             Email
           </Typography>
-          <Typography variant="small" color="gray" className="font-nunito">
+          <Typography variant="small" color="gray" className="font-nunito ">
             krishnamulay50@gmail.com
           </Typography>
         </div>
       </div>
       <div className="flex items-center gap-4 mt-[25px]">
-        <div className="rounded-full bg-[#232017] border-[1px] border-[#4C452D] p-5">
+        <div className="rounded-full bg-[#F3F0E7] dark:bg-[#232017] border-[1px] border-[#DDD6BF] dark:border-[#4C452D] p-5 dark:text-white text-black">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -48,7 +53,10 @@ function ContactMeComp() {
           </svg>
         </div>
         <div>
-          <Typography variant="h6" className="font-nunito">
+          <Typography
+            variant="h6"
+            className="font-nunito dark:text-white text-black"
+          >
             Linkedin
           </Typography>
           <a
