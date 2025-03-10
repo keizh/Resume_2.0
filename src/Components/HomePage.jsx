@@ -49,7 +49,7 @@ function HomePage() {
         {/* resume and copy email */}
         <div className="flex flex-col items-center sm:flex-row gap-5 flex-wrap aspect-1/1">
           <a
-            href="https://res.cloudinary.com/dddkhewor/image/upload/v1740654307/Resume_xepwkk.pdf"
+            href="https://res.cloudinary.com/dddkhewor/image/upload/v1741601265/Resume_e2iwxo.pdf"
             target="_blank"
           >
             <Button className="bg-[#fbc02d] text-black font-nunito flex gap-2 items-center">
