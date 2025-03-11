@@ -35,7 +35,7 @@ function ContactMeComp() {
             Email
           </Typography>
           <Typography variant="small" color="gray" className="font-nunito ">
-            krishnamulay50@gmail.com
+            krishnamulay05@gmail.com
           </Typography>
         </div>
       </div>
